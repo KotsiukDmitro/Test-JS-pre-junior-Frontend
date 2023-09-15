@@ -1,0 +1,36 @@
+.text {
+    font-size: 36px;
+    text-align: center;
+    color: red;
+    margin: 100px auto 50px;
+
+}
+
+.block-btn {
+    text-align: center;
+}
+
+.btn {
+    background-color: rgb(216, 247, 216);
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+    border: none;
+}
+
+.text-color {
+    color: rgb(46, 46, 173);
+}
+
+.test {
+    border: 1px solid black;
+    height: 20px;
+    width: 200px;
+    margin: 50px auto 10px;
+    text-align: center;
+}

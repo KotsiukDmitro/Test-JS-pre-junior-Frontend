@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h2 class="text" id="node">Test Class</h2>
+
+    <div class="block-btn">
+        <button class="btn" id="btn">ADD CLASS</button>
+    </div>
+
+    <div class="test">
+    <span id="testBoolean" ></span>
+    </div>
+    <div class="block-btn">
+        <button class="btn" id="btnCheck">CHECK CLASS</button>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const node = document.querySelector("#node")
+            document.querySelector('#btn').addEventListener('click', () => {
+                addClass(node, 'text-color')
+            })
+            const result = document.querySelector('#testBoolean')
+            document.querySelector('#btnCheck').addEventListener('click', () => {
+                document.querySelector('#testBoolean').innerHTML = 'наличие класса у node:' + " " + hasClass(node, 'text-color')
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>
