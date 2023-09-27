@@ -1,0 +1,16 @@
+{
+  "name": "js-pre-junior-testing",
+  "version": "1.0.0",
+  "description": "Для проверки задач №1 и №2 запустить терминал и набрать \"node main.js\", результат выполнения функций будет вывиден к консоль\r Для задачи №3 и №4 открыть в браузере index.html.\r Для проверки задачи №3 в браузере нажать кнопку \"ADD CLASS\" цвет текста \"Test Class\" должен измениться\r Для проверки задачи №4 в браузере нажать кнопку \"CHECK CLASS\" и окне появиться \"наличие класса у node: true\" или \"наличие класса у node: false\"",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main",
+    "lint": "npx eslint main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
+}

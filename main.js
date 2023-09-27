@@ -83,7 +83,6 @@ function addClass(node, classToAdd) {
     //второй вариант решения
     if (!(node instanceof HTMLElement)) {
         throw Error('Недопустимый тип node')
-        
     }
     if (typeof classToAdd !== 'string') {
         throw Error('Недопустимый тип node')
@@ -108,6 +107,9 @@ if (!(node instanceof HTMLElement)) {
     
 }
 if (typeof classToAdd !== 'string') {
+    
+    
+    
     throw Error('Недопустимый тип node')
 }
 
