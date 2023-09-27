@@ -7,14 +7,22 @@ const object = { 0: 1, "1": 2, 2: 3, 3: 4, 4: 5, 5: 6, length: 10}
 function extractOddItems(arr) {
 
     const array = []
-    
-    for (elem in arr) {
-        const index = parseInt(elem)
-        if (index % 2 === 1) {
-            array.push(arr[index])
-        }
-      }
-      return (array)
+
+    // Добавил доп. проверку Number.isInteger()
+    // for (elem in arr) {
+    //     const index = parseInt(elem)
+    //     if (Number.isInteger(index) && index % 2 === 1) {
+    //         array.push(arr[index])
+    //     }
+    // }
+
+    // второй вариант решения задачи
+    for(let i = 1; i < arr?.length; i = i + 2) {
+        if(arr[i] !== undefined) {
+            array.push(arr[i])
+        }            
+    }
+    return (array)
 }
 console.log('Задача №1');
 
@@ -36,10 +44,24 @@ const values = [1, 2, 3, 4]
 function createObject(keys, values) {
 
     let obj = {}
+
+    if(keys.length > values.length) {
+        console.warn('Предупреждение: ключей больше, чем значений')
+    }
+    if(keys.length < values.length) {
+        console.warn('Предупреждение: ключей меньше, чем значений');
+    }
+
     
-    for (let i = 0; i < keys.length; i++) {
+    for (let i = 0; i < keys.length; i++) {  
        let key = keys[i]
+      
+       if((typeof key) !== 'string' && (typeof key) !== 'number') {
+        console.warn('У ключа  ' + key + '  Недопустимый тип данных');
+       }
         obj[key] = values[i]
+    
+
     }
     return obj
 }
@@ -54,9 +76,22 @@ console.log('результат:', createObject(keys, values));
 
 function addClass(node, classToAdd) {
     
-    if(!node.classList.contains(classToAdd)) {
-        node.classList.add(classToAdd)
-    } 
+    // if(!node.classList.contains(classToAdd)) {
+    //     node.classList.add(classToAdd)
+    // } 
+
+    //второй вариант решения
+    if (!(node instanceof HTMLElement)) {
+        throw Error('Недопустимый тип node')
+        
+    }
+    if (typeof classToAdd !== 'string') {
+        throw Error('Недопустимый тип node')
+    }
+    if (!hasClass(node, classToAdd)) {
+        const nodeClasses = node.getAttribute('class') || ''
+        node.setAttribute('class', [nodeClasses, classToAdd].join(' '))
+    }
 }
 
 // _________________________________________________________________________________________
@@ -65,8 +100,19 @@ function addClass(node, classToAdd) {
 // Которая вернет true, если у node есть класс classToCheck
 
 function hasClass(node, classToCheck) {
-   
-   return node.classList.contains(classToCheck)         
+//    return node.classList.contains(classToCheck) 
+
+//второй вариант решения
+if (!(node instanceof HTMLElement)) {
+    throw Error('Недопустимый тип node')
+    
+}
+if (typeof classToAdd !== 'string') {
+    throw Error('Недопустимый тип node')
+}
+
+    const nodeClasses = node.getAttribute('class').split(' ')
+    return !!nodeClasses.find(nodeClass => nodeClass.trim() === classToCheck)        
 }
 
 
